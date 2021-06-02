@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  dentist ariful
+{% endblock %} 
+
+{% block content %} 
+
+
+
+    <div class='site-section' style='background-image: url({% static "website/images/contact.jpg" %}); background-size: 100%;' data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container mb-5">
+        <div class="row">
+          <div class="col-md-12 col-lg-6 mb-5 mb-lg-0">
+          
+            <h2 class="site-heading text-white mt-5 mb-5"><strong> Appointment</strong></h2>
+            
+            <!-- form section -->
+            <form action="{% url 'appoinment' %}"  class="border border-white p-4 pt-5  text-white mb-5 mb-lg-0 " method="post">
+              {% csrf_token %}
+              <div class="row form-group ">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="first-name">First Name</label>
+                  <input type="text" id="fname" class="form-control" name="first-name" placeholder="First Name">
+                </div>
+                <div class="col-md-6">
+                  <label class="font-weight-bold" for="last-name">Last Name</label>
+                  <input type="text" id="lname" class="form-control" name="last-name" placeholder="First Name" placeholder="Last Name">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="date">Date</label> 
+                  <input type="text" id="date" name="date" class="form-control datepicker px-2" placeholder="Date of visit">
+                </div>
+                <div class="col-md-6">
+                  <label class="font-weight-bold" for="email">Email</label> 
+                  <input type="email" id="email" name='email' class="form-control" placeholder="Email">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="font-weight-bold" for="treatment">Treatment Needed</label> 
+                  <select name="treatment" id="treatment" class="form-control">
+                    <option value="Dental exam and teeth cleaning">Dental exam and teeth cleaning</option>
+                    <option value="Dental emergency">Dental emergency</option>
+                    <option value="Dental implants">Dental implants</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="font-weight-bold" for="note">Notes</label> 
+                  <textarea name="note" id="note" cols="30" rows="5" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send" class="btn btn-white">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+          <div class="col-md-12 col-lg-6">
+          
+            <h2 class="site-heading text-white mt-5 mb-5">Say  <strong>Hello</strong></h2>
+          
+            <form action="{% url 'contact' %}" class="border border-white p-5 text-white bg-transparent" method="post">
+              {% csrf_token %}
+
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">Full Name</label>
+                  <input type="text" id="fullname" name='fullname' class="form-control" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="font-weight-bold" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                </div>
+              </div>
+
+              
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="font-weight-bold" for="message">Message</label> 
+                  <textarea name="message" id="message" name="message" cols="30" rows="5" class="form-control" placeholder="Say hello to us"></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send" class="btn btn-white">
+                </div>
+              </div>
+              <div>
+
+               
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="promo py-5 bg-success">
+      <div class="container text-center">
+        <span class="d-block h4 mb-3 font-weight-light text-white">Promo For Tooth Cleaning from <del>$140.00</del> now <strong class="font-weight-bold">$50.00</strong></span>
+        <div id="date-countdown" class="mt-0 mb-2"></div>
+      </div>
+    </div>
+
+{% endblock %}
